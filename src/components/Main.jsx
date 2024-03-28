@@ -1,7 +1,14 @@
+import AboutMe from "./AboutMe"
+import Experience from "./Experience"
+import Skills from "./Skills"
 
 function Main() {
     return(
-        <div>Main</div>
+        <div className="p-4 flex flex-col md:grid md:grid-cols-3">
+            <AboutMe/>
+            <Experience/>
+            <Skills/>
+        </div>
     )
 }
 

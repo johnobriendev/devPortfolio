@@ -8,8 +8,8 @@ function Navbar() {
     
     
     return(
-        <div className="sticky-0 flex justify-between items-center gap-4 sm:gap-8 p-4">
-            <div>JO'B</div>    
+        <div className="sticky-0 flex justify-between items-center gap-4 sm:gap-8 p-4 text-xs sm:text-sm">
+            <a className="text-sm sm:text-base" href="/">JO'B</a>    
             <div className="flex items-center gap-4">
                 {links.map((link, index) => {
                     return(
