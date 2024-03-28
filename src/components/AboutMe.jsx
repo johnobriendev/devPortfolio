@@ -1,6 +1,6 @@
 function AboutMe() {
     return(
-        <div className="flex flex-col md:grid md:grid-cols-2 md:col-span-3">
+        <div className="flex flex-col md:grid md:grid-cols-2 ">
             <div className="flex flex-col gap-3 ">
                 <div className="flex items-center">
                     <h1 className="font-bold text-4xl sm:text-6xl">John O'Brien</h1>
