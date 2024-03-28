@@ -4,9 +4,9 @@ import Skills from "./Skills"
 
 function Main() {
     return(
-        <div className="p-4 flex flex-col md:grid md:grid-cols-3">
+        <div className="p-4 flex flex-col md:grid md:grid-cols-4">
             <AboutMe/>
-            <Experience/>
+            {/* <Experience/> */}
             <Skills/>
         </div>
     )
