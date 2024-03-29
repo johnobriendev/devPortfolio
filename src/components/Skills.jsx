@@ -6,7 +6,7 @@ function Skills() {
     }
     
     return(
-        <div className="shadow-xl p-8 bg-white rounded flex flex-col gap-4">
+        <div className="shadow-xl p-4 bg-white rounded flex flex-col gap-4">
             <div className="flex flex-col gap-2">
                 <h1 className="text-3xl">Info</h1>
                 <div className="flex items-center gap-1 text-base relative after:absolute after:bottom-0 after:w-full after:h-[2px] after:right-full after:bg-purple-500 hover:after:translate-x-full after:duration-300 overflow-hidden">
