@@ -13,7 +13,7 @@ function Navbar() {
             <div className="flex items-center gap-4">
                 {links.map((link, index) => {
                     return(
-                        <a href={link[1]} target="_blank">{link[0]}</a> 
+                        <a key={link[1]} href={link[1]} target="_blank">{link[0]}</a> 
                     )
                 })}
             </div>

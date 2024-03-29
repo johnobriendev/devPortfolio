@@ -21,7 +21,7 @@ function Experience() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {experiences.map((experience, index) => {
                 return(
-                    <div className="flex flex-col gap-1">
+                    <div key={index} className="flex flex-col gap-1">
                         <h1 className="text-lg font-bold uppercase">{experience.company}</h1>
                         <h2 className="text-sm pb-2">{experience.position}</h2>
                         <p className="text-slate-500">{experience.desciption}</p>
