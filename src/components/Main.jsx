@@ -1,6 +1,7 @@
 import AboutMe from "./AboutMe"
 import Experience from "./Experience"
 import Skills from "./Skills"
+import { useState } from "react"
 
 function Main() {
     return(
