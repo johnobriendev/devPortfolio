@@ -5,7 +5,7 @@ import { useState } from "react"
 import Modal from "./Modal"
 
 function Main() {
-    const [showModal, setShowModal] = useState(true);
+    const [showModal, setShowModal] = useState(false);
     function onCloseHandler(){
         setShowModal(false);
     }
