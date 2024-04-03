@@ -52,7 +52,7 @@ function Skills() {
                 <h1 className="text-3xl">About Me</h1>
                 <ul className="ml-4 list-disc list-outside flex flex-col">
                     <li>I have been a professional musician for over 10 years!
-                        <a className="text-red-500" href="johnobrienguitar.com"> Link to my Music Website</a>
+                        <a className="text-red-500" href="http://johnobrienguitar.com" target="_blank" > Link to my Music Website</a>
                     </li>
                     <li>I lived in South America for 2 years and was in Buenos Aires when Argentina won the World Cup.</li>
                     <li>I speak Spanish!</li>
