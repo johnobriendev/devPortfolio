@@ -8,17 +8,20 @@ function Modal(props) {
         {name: 'Kanban',
          link: 'https://johns-kanban.netlify.app/',
          desc: 'dfgsdfgsdfgsdfg',
-         github: 'https://github.com/johnobriendev/kanbanReact'
+         github: 'https://github.com/johnobriendev/kanbanReact',
+         picture: 'kanbanss.png'
         }, 
         {name: 'MemoryCard',
          link: 'https://johnsmemorycard.netlify.app/',
          desc: 'dsfgsdfgsdfgsdfgsdfgsdfgdsf',
-         github: 'https://github.com/johnobriendev/memory-card'
+         github: 'https://github.com/johnobriendev/memory-card',
+         picture: 'memorycardss.png'
         },
         {name: 'DiscGolf Scorecard',
          link: 'https://venerable-croissant-c44ec9.netlify.app/',
          desc: 'dsfgsdfgsdfgsdfgsdfgsdfgsdf',
-         github: 'https://github.com/johnobriendev/discgolfScorecard'
+         github: 'https://github.com/johnobriendev/discgolfScorecard',
+         picture: 'scorecardss.png'
         }
     ]
     return ReactDom.createPortal(
@@ -27,11 +30,12 @@ function Modal(props) {
                 <h2>Projects</h2>
                 <FaXmark onClick={onClose} />
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-1 bg-white md:p-1">
+            <div className="grid grid-cols-1  gap-1 bg-white md:p-1">
                 {projects.map((project, index) => {
                     return(
-                        <div key={index} className="w-full aspect-video md:h-[200px] bg-slate-900 text-white flex flex-col gap-2 p-2">
+                        <div key={index} className="w-full aspect-video bg-slate-900 text-white flex flex-col gap-2 p-2 items-center">
                             <h1>{project.name}</h1>
+                            <img className="w-[90%] h-auto" src={project.picture}/>
                             <p className="text-xs flex-1">{project.desc}</p>
                             <div className="grid text-center grid-cols-2">
                                 <a href={project.link} className="pointer-cursor">Live</a>
