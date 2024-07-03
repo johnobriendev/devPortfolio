@@ -8,7 +8,7 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-   <div className='h-screen bg-neutral-700 text-sky-100 font-extralight'>
+   <div className='h-full bg-neutral-700 text-sky-100 font-extralight'>
      <Navbar/>
      <Outlet />
    </div>

@@ -9,7 +9,7 @@ function Homepage () {
      <div className='pt-24'>
       <AboutMe />
      </div>
-     <div className='mt-12 mb-24 md:mt-24'>
+     <div className='mt-12 pb-24 md:mt-24'>
       <Skills />
      </div>
     </div>
