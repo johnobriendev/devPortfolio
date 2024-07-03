@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom"
 function Navbar() {
     
     const links = [
@@ -8,18 +8,24 @@ function Navbar() {
     
     
     return(
-        <div className="sticky-0 flex justify-between items-center gap-4 sm:gap-8 p-4 text-xs sm:text-sm">
-            <a className="text-sm sm:text-base" href="/">JO'B</a>    
-            <div className="flex items-center gap-4">
-                {links.map((link, index) => {
-                    return(
-                        <a key={link[1]} href={link[1]} target="_blank">{link[0]}</a> 
-                    )
-                })}
+        <nav className="fixed top-0 left-0 w-full shadow-md z-10 bg-gray-800 text-white" >
+            <div className="w-full flex justify-between items-center gap-4 sm:gap-8 p-4 text-xs sm:text-sm">
+               <Link to="/"> <h1 className="text-xl" href="/">John O'Brien</h1> </Link>    
+                <div className="flex items-center gap-4">
+                    <div>
+                        <Link to='/projects'>Projects</Link>
+                    </div>
+                    {links.map((link, index) => {
+                        return(
+                            <a key={link[1]} href={link[1]} target="_blank">{link[0]}</a> 
+                        )
+                    })}
+                </div>
+            
+            
             </div>
-            
-            
-        </div>
+        </nav>
+        
     )
 }
 

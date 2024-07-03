@@ -1,15 +1,20 @@
 import { useState } from 'react'
-import Layout from './components/Layout'
-import Main from './components/Main'
+import { Outlet } from 'react-router-dom'
+import Navbar from './components/Navbar'
+
 
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <Layout>
-      <Main/>
-    </Layout>
+   <div className='h-screen bg-neutral-700 text-sky-100 font-extralight'>
+     <Navbar/>
+     <Outlet />
+   </div>
+  
+     
+    
   )
 }
 
