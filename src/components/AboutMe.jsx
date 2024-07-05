@@ -5,7 +5,7 @@ function AboutMe() {
             <div className="flex flex-col gap-3 ">
                 <h1 className="text-4xl">John O'Brien</h1>
                 <h2 className="text-xl">Fullstack Developer</h2>
-                <p className="">John O'Brien is a self-taught software developer from Bethlehem, Pennsylvania. He holds a B.A. in Economics, Philosophy, and Jazz Studies from the University of Pittsburgh.</p>
+                <p className="">John O'Brien is a software developer from Bethlehem, Pennsylvania. He holds a B.A. in Economics, Philosophy, and Jazz Studies from the University of Pittsburgh.</p>
 
                 <div className="flex flex-col gap-2">
                 <h1 className="text-2xl">About Me</h1>
