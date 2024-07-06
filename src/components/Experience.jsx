@@ -18,7 +18,7 @@ function Experience() {
     ]
     
     return(
-        <div className="grid grid-cols-1 gap-8 py-24 mx-12 h-screen" >
+        <div className="grid grid-cols-1 gap-8 py-24 mx-12 h-screen " >
             <h2 className="text-xl">Projects</h2>
             
             {experiences.map((experience, index) => {

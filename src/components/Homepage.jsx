@@ -5,7 +5,7 @@ import Skills from './Skills'
 
 function Homepage () {
   return(
-    <div className='mx-12 md:flex md:gap-10 h-screen'>
+    <div className='mx-12  md:gap-10 h-screen'>
      <div className='pt-24'>
       <AboutMe />
      </div>

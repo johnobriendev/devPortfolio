@@ -2,7 +2,7 @@ function AboutMe() {
    
 
     return(
-            <div className="flex flex-col gap-3 ">
+            <div className="flex flex-col gap-3 max-w-2xl">
                 <h1 className="text-4xl">John O'Brien</h1>
                 <h2 className="text-xl">Fullstack Developer</h2>
                 <p className="">John O'Brien is a software developer from Bethlehem, Pennsylvania. He holds a B.A. in Economics, Philosophy, and Jazz Studies from the University of Pittsburgh.</p>
