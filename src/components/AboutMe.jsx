@@ -11,7 +11,7 @@ function AboutMe() {
                     <h1 className="text-2xl">About Me</h1>
                     <div className=" flex flex-col gap-5 ">
                         <p>I have been a professional musician for over 10 years! I still teach and perform. 
-                            <a className="text-sky-500 underline" href="http://johnobrienguitar.com" target="_blank" > Link to my Music Website</a>
+                           &nbsp; <a className="text-sky-500 underline" href="http://johnobrienguitar.com" target="_blank" > Link to my Music Website</a>
                         </p>
                         <p>I lived in South America for 2 years and was living in Buenos Aires when Argentina won the World Cup. I love learning languages and different dialects. I even worked as a translator while I was there! </p>
                     
