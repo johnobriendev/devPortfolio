@@ -11,7 +11,7 @@ function AboutMe() {
 
                 <div className="flex flex-col gap-2">
                     <h1 className="text-2xl">About Me</h1>
-                    <div className=" flex flex-col gap-5 ">
+                    <div className=" flex flex-col gap-5 mb-5 ">
                         <p>I have been a professional musician for over 10 years! I still teach and perform. 
                            &nbsp; <a className="text-sky-500 underline" href="http://johnobrienguitar.com" target="_blank" > Link to my Music Website</a>
                         </p>
@@ -22,7 +22,7 @@ function AboutMe() {
 
                     <p>Email: <a href="mailto:johnobrien.dev@gmail.com" className="underline">johnobrien.dev@gmail.com</a> </p>
                     <p>Github: <a href="https://github.com/johnobriendev" className="underline">johnobriendev</a> </p>
-                    <p>LinkedIn: <a href="https://www.linkedin.com/in/john-o-brien-a33bb6275/" className="underline">Here</a>   </p>
+                    <p className="mb-10">LinkedIn: <a href="https://www.linkedin.com/in/john-o-brien-a33bb6275/" className="underline">Here</a>   </p>
 
 
                     <OpenResumeButton />
