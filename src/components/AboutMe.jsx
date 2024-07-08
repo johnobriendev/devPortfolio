@@ -1,3 +1,5 @@
+import OpenResumeButton from "./OpenResumeButton";
+
 function AboutMe() {
    
 
@@ -21,6 +23,9 @@ function AboutMe() {
                     <p>Email: <a href="mailto:johnobrien.dev@gmail.com" className="underline">johnobrien.dev@gmail.com</a> </p>
                     <p>Github: <a href="https://github.com/johnobriendev" className="underline">johnobriendev</a> </p>
                     <p>LinkedIn: <a href="https://www.linkedin.com/in/john-o-brien-a33bb6275/" className="underline">Here</a>   </p>
+
+
+                    <OpenResumeButton />
                     
                 
                  </div>
