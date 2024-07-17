@@ -1,4 +1,6 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+
 
 const OpenResumeButton = () => {
   const openResume = () => {
@@ -6,13 +8,23 @@ const OpenResumeButton = () => {
   };
 
   return (
-    <button 
-      onClick={openResume} 
-      className="text-white px-4 py-2 rounded border w-24"
+    <motion.button
+        onClick={openResume}
+        className="hover:bg-neutral-500 border text-white py-2 px-4 rounded w-24"
+        whileHover={{ scale: 1.15 }}
+        whileTap={{ scale: 0.95 }}
     >
-       Resume
-    </button>
-  );
+        Resume
+    </motion.button>
+);
+  // return (
+  //   <button 
+  //     onClick={openResume} 
+  //     className="text-white px-4 py-2 rounded border "
+  //   >
+  //      Resume
+  //   </button>
+  // );
 };
 
 export default OpenResumeButton;

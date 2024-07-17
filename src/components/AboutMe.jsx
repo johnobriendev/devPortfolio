@@ -25,7 +25,7 @@ function AboutMe() {
     };
 
     return (
-        <div className="flex flex-col gap-3 max-w-2xl min-h-screen pb-10">
+        <div className="flex flex-col gap-3 max-w-2xl">
             <motion.h1 
                 className="text-4xl overflow-hidden whitespace-nowrap"
                 initial="hidden"
@@ -56,7 +56,7 @@ function AboutMe() {
                     <h1 className="text-2xl">About Me</h1>
                     <div className="flex flex-col gap-5 mb-5">
                         <p>I have been a professional musician for over 10 years! I still teach and perform. 
-                        &nbsp; <a className="text-sky-500 underline" href="http://johnobrienguitar.com" target="_blank" rel="noopener noreferrer">Link to my Music Website</a>
+                        &nbsp; <a className="text-sky-500 hover:text-sky-400 underline font-normal" href="http://johnobrienguitar.com" target="_blank" rel="noopener noreferrer">Link to my Music Website</a>
                         </p>
                         <p>I lived in South America for 2 years and was living in Buenos Aires when Argentina won the World Cup. I love learning languages and different dialects. I even worked as a translator while I was there!</p>
                         <p>When I'm not programming I love to play disc golf and drink mate (vamos argentina)! Many of my projects feature my personal interests.</p>
@@ -66,12 +66,9 @@ function AboutMe() {
                     <p>Github: <a href="https://github.com/johnobriendev" className="underline  hover:text-sky-500">johnobriendev</a></p>
                     <p className="mb-10">LinkedIn: <a href="https://www.linkedin.com/in/john-o-brien-a33bb6275/" className="underline  hover:text-sky-500">Here</a></p>
 
-                    <motion.div
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <OpenResumeButton />
-                    </motion.div>
+                   
+                    <OpenResumeButton />
+                   
                 </div>
             </motion.div>
         </div>

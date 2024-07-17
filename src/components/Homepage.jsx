@@ -5,13 +5,13 @@ import Skills from './Skills'
 
 function Homepage () {
   return(
-    <div className='mx-12  md:gap-10'>
+    <div className='mx-12 min-h-screen '>
      <div className='pt-24'>
       <AboutMe />
      </div>
-     <div className='mt-12 pb-24 md:mt-24'>
+     {/* <div className='pb-24 mt-12 '>
       <Skills />
-     </div>
+     </div> */}
     </div>
 
    
