@@ -2,19 +2,7 @@ import { motion } from 'framer-motion';
 
 function Experience() {
     const experiences = [
-        {
-            project: 'Wolf - Golf Scoring Application',
-            description: 'Developed a sophisticated React-based web application for managing the complex scoring system of the golf game "Wolf". This project showcases proficiency in:',
-            bulletPoints: [
-                'Frontend development with React.js',
-                'State management in complex applications',
-                'User interface design for intuitive score tracking',
-                'Implementing game logic and real-time calculations',
-                'Responsive design for cross-device compatibility'
-            ],
-            additionalInfo: 'The application features dynamic player input, hole-by-hole score recording, and automatic point calculation based on intricate game rules. A toggle functionality allows users to switch seamlessly between scorecard and game view, demonstrating attention to user experience and interface design.',
-            link: 'https://thewolfgolf.netlify.app'
-        },
+        
         {
             project: 'Disc Golf E-Commerce Platform',
             description: 'Engineered a full-stack e-commerce solution for a disc golf equipment retailer, incorporating both customer-facing and administrative interfaces. This comprehensive project demonstrates expertise in:',
@@ -57,6 +45,19 @@ function Experience() {
             additionalInfo: 'The application features intuitive click-to-edit functionality for task details and full drag-and-drop capabilities for task management across columns. Currently utilizing local storage for data persistence, with plans for future integration of a Node.js backend. This project showcases the ability to create sophisticated, user-friendly web applications that solve real-world productivity challenges.',
             link: 'https://johns-kanban.netlify.app/'
         },
+        {
+            project: 'Wolf - Golf Scoring Application',
+            description: 'Developed a sophisticated React-based web application for managing the complex scoring system of the golf game "Wolf". This project showcases proficiency in:',
+            bulletPoints: [
+                'Frontend development with React.js',
+                'State management in complex applications',
+                'User interface design for intuitive score tracking',
+                'Implementing game logic and real-time calculations',
+                'Responsive design for cross-device compatibility'
+            ],
+            additionalInfo: 'The application features dynamic player input, hole-by-hole score recording, and automatic point calculation based on intricate game rules. A toggle functionality allows users to switch seamlessly between scorecard and game view, demonstrating attention to user experience and interface design.',
+            link: 'https://thewolfgolf.netlify.app'
+        },
     ];
 
     const typewriter = {
@@ -75,7 +76,7 @@ function Experience() {
     };
 
     return (
-        <div className="grid grid-cols-1 gap-8 py-24 mx-12 min-h-screen md:mx-36 xl:mx-80">
+        <div className="grid grid-cols-1 gap-8 py-24 mx-12 mb-12 min-h-screen md:mx-36 xl:mx-80">
             <motion.h2
                 className="text-xl font-light overflow-hidden whitespace-nowrap"
                 initial="hidden"
