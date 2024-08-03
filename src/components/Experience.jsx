@@ -76,7 +76,7 @@ function Experience() {
     };
 
     return (
-        <div className="grid grid-cols-1 gap-8 py-24 mx-12 mb-12 min-h-screen md:mx-36 xl:mx-80">
+        <div className="grid grid-cols-1 gap-8 py-24 mx-12  min-h-screen md:mx-36 xl:mx-80">
             <motion.h2
                 className="text-xl font-light overflow-hidden whitespace-nowrap"
                 initial="hidden"
