@@ -58,7 +58,7 @@ function AboutMe() {
                         <p>I have been a professional musician for over 10 years! I still teach and perform. 
                         &nbsp; <a className="text-sky-500 hover:text-sky-400 underline font-normal" href="http://johnobrienguitar.com" target="_blank" rel="noopener noreferrer">Link to my Music Website</a>
                         </p>
-                        <p>I lived in South America for 2 years and was living in Buenos Aires when Argentina won the World Cup. I love learning languages and different dialects.</p>
+                        <p>I lived in Chile and Argentina for 2 years and was living in Buenos Aires when Argentina won the World Cup. I love learning languages and different dialects.</p>
                         <p>When I'm not programming I love to play disc golf and drink mate (vamos argentina)! Many of my projects feature my personal interests.</p>
                     </div>
 
