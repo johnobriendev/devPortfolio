@@ -80,7 +80,7 @@ function AboutMe() {
                         &nbsp; <a className="text-sky-400 hover:text-sky-500 font-normal" href="http://johnobrienguitar.com" target="_blank" rel="noopener noreferrer">Link to my Music Website</a>
                         </p>
                         <p>I lived in Chile and Argentina for 2 years and was living in Buenos Aires when Argentina won the World Cup. I love learning languages and different dialects.</p>
-                        <p>When I'm not programming I love to play golf and drink mate.</p>
+                        <p>When I'm not working I love to play golf and drink mate.</p>
                     </div>
 
                     <p>Email: <a href="mailto:johnobrien.dev@gmail.com" className="underline hover:text-sky-500">johnobrien.dev@gmail.com</a></p>
