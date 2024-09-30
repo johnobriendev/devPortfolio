@@ -85,7 +85,7 @@ function AboutMe() {
 
                     <p>Email: <a href="mailto:johnobrien.dev@gmail.com" className="underline hover:text-sky-500">johnobrien.dev@gmail.com</a></p>
                     <p>Github: <a href="https://github.com/johnobriendev" className="underline  hover:text-sky-500">johnobriendev</a></p>
-                    <p className="mb-10">LinkedIn: <a href="https://www.linkedin.com/in/john-o-brien-a33bb6275/" className="underline  hover:text-sky-500">Here</a></p>
+                    <p className="mb-10">LinkedIn: <a href="https://www.linkedin.com/in/johnobriendev/" className="underline  hover:text-sky-500">johnobriendev</a></p>
 
                    
                     <OpenResumeButton />
