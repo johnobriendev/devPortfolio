@@ -56,8 +56,8 @@ function AboutMe() {
                 <h3 className="text-2xl mb-4 underline ">Work</h3>
                 <Link to='https://tremendo.pro/'className='text-xl text-sky-400 hover:text-sky-500' target="_blank">tremendo.pro</Link>
                 <p className='mt-2 mb-4'>Tremendo is a personal Kanban Board featuring an ExpressJS API and ReactJS front end.</p>
-                <Link to='https://barrysdiscs.netlify.app/'className='text-xl text-sky-400 hover:text-sky-500' target="_blank">Barry's Discs</Link>
-                <p className='mt-2 mb-4'>Disc Golf Ecommerce store with admin portal for the seller to upload disc pictures and charateristics.</p>
+                <Link to='https://barrysdiscs.netlify.app/'className='text-xl text-sky-400 hover:text-sky-500' target="_blank">Disc Store</Link>
+                <p className='mt-2 mb-4'>Disc Golf Ecommerce store with admin portal for the seller to upload disc pictures and charateristics and manage inventory.</p>
                 <Link to='https://thewolfgolf.netlify.app/'className='text-xl text-sky-400 hover:text-sky-500' target="_blank">The Wolf</Link>
                 <p className='mt-2'>The Wolf is a popular gambling game for golfers. This app keeps track of the golfers' scores as well as their points in the Wolf game. I plan on converting this to a native app.</p>
 
