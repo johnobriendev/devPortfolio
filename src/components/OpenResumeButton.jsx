@@ -17,14 +17,7 @@ const OpenResumeButton = () => {
         Resume
     </motion.button>
 );
-  // return (
-  //   <button 
-  //     onClick={openResume} 
-  //     className="text-white px-4 py-2 rounded border "
-  //   >
-  //      Resume
-  //   </button>
-  // );
+
 };
 
 export default OpenResumeButton;

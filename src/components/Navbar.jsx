@@ -23,9 +23,6 @@ function Navbar() {
         hidden: { opacity: 0 },
         visible: { opacity: 1 }
     };
-
-
-    
     
     return(
         <nav className="fixed top-0 left-0 w-full shadow-md z-10 px-8 bg-gray-800 text-white" >

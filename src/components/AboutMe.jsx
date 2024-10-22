@@ -27,24 +27,6 @@ function AboutMe() {
 
     return (
         <div className="flex flex-col gap-3 max-w-2xl">
-            {/* <motion.h1 
-                className="text-4xl overflow-hidden whitespace-nowrap"
-                initial="hidden"
-                animate="visible"
-                variants={typewriter}
-                transition={{ duration: 1.5, delay: 0.5 }}
-            >
-                John O'Brien
-            </motion.h1>
-            <motion.h2 
-                className="text-xl"
-                initial="hidden"
-                animate="visible"
-                variants={slideIn}
-                transition={{ duration: 0.8, delay: 2 }}
-            >
-                Software Developer
-            </motion.h2> */}
             <motion.div
                 initial="hidden"
                 animate="visible"
@@ -60,7 +42,6 @@ function AboutMe() {
                 <p className='mt-2 mb-4'>Disc Golf Ecommerce store with admin portal for the seller to upload disc pictures and charateristics and manage inventory.</p>
                 <Link to='https://thewolfgolf.netlify.app/'className='text-xl text-sky-400 hover:text-sky-500' target="_blank">The Wolf</Link>
                 <p className='mt-2'>The Wolf is a popular gambling game for golfers. This app keeps track of the golfers' scores as well as their points in the Wolf game. I plan on converting this to a native app.</p>
-
 
             </motion.div>
             <motion.div
