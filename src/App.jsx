@@ -2,53 +2,43 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const colorSchemes = {
-  sunset: {
-    primary: 'from-orange-500 to-pink-500',
-    accent: 'text-orange-400',
-    hover: 'hover:text-pink-400',
-    button: 'bg-orange-500 hover:bg-orange-600',
-    card: 'bg-gradient-to-br from-orange-900/40 to-pink-900/40',
-    link: 'text-pink-400 hover:text-pink-300',
-    nav: 'bg-orange-950/90',
-    projectsBg: 'bg-gradient-to-b from-orange-950 to-pink-950',
-    aboutBg: 'bg-gradient-to-b from-pink-950 to-orange-950'
-  },
-  northern: {
-    primary: 'from-blue-400 via-purple-400 to-green-400',
-    accent: 'text-blue-300',
-    hover: 'hover:text-purple-300',
-    button: 'bg-blue-500 hover:bg-blue-600',
-    card: 'bg-gradient-to-br from-blue-900/40 via-purple-900/40 to-green-900/40',
-    link: 'text-purple-300 hover:text-blue-200',
-    nav: 'bg-blue-950/90',
-    projectsBg: 'bg-gradient-to-b from-blue-950 to-purple-950',
-    aboutBg: 'bg-gradient-to-b from-purple-950 to-green-950'
-  },
-  cyberpunk: {
-    primary: 'from-fuchsia-500 via-yellow-400 to-cyan-500',
-    accent: 'text-fuchsia-400',
+  neoTokyo: {
+    primary: 'from-pink-500 via-purple-500 to-cyan-400',
+    accent: 'text-pink-300',
     hover: 'hover:text-cyan-300',
-    button: 'bg-fuchsia-600 hover:bg-fuchsia-700',
-    card: 'bg-gradient-to-br from-fuchsia-900/40 via-yellow-900/40 to-cyan-900/40',
-    link: 'text-cyan-400 hover:text-fuchsia-300',
-    nav: 'bg-fuchsia-950/90',
-    projectsBg: 'bg-gradient-to-b from-fuchsia-950 to-cyan-950',
-    aboutBg: 'bg-gradient-to-b from-cyan-950 to-fuchsia-950'
+    button: 'bg-pink-600 hover:bg-pink-700',
+    card: 'bg-gradient-to-br from-pink-900/40 via-purple-900/40 to-cyan-900/40',
+    link: 'text-cyan-300 hover:text-pink-200',
+    nav: 'bg-pink-950/90',
+    projectsBg: 'bg-gradient-to-b from-pink-950 via-purple-950 to-cyan-950',
+    aboutBg: 'bg-gradient-to-b from-cyan-950 via-purple-950 to-pink-950'
   },
-  desert: {
-    primary: 'from-amber-400 via-red-400 to-yellow-400',
-    accent: 'text-amber-300',
-    hover: 'hover:text-red-300',
-    button: 'bg-amber-600 hover:bg-amber-700',
-    card: 'bg-gradient-to-br from-amber-900/40 via-red-900/40 to-yellow-900/40',
-    link: 'text-red-300 hover:text-amber-200',
-    nav: 'bg-amber-950/90',
-    projectsBg: 'bg-gradient-to-b from-amber-950 to-red-950',
-    aboutBg: 'bg-gradient-to-b from-red-950 to-yellow-950'
-  }
+  futureRetro: {
+    primary: 'from-violet-400 via-fuchsia-500 to-orange-400',
+    accent: 'text-violet-300',
+    hover: 'hover:text-orange-300',
+    button: 'bg-violet-600 hover:bg-violet-700',
+    card: 'bg-gradient-to-br from-violet-900/40 via-fuchsia-900/40 to-orange-900/40',
+    link: 'text-orange-300 hover:text-violet-200',
+    nav: 'bg-violet-950/90',
+    projectsBg: 'bg-gradient-to-b from-violet-950 via-fuchsia-950 to-orange-950',
+    aboutBg: 'bg-gradient-to-b from-orange-950 via-fuchsia-950 to-violet-950'
+  },
+  electricDream: {
+    primary: 'from-yellow-400 via-green-400 to-blue-500',
+    accent: 'text-yellow-300',
+    hover: 'hover:text-blue-300',
+    button: 'bg-green-600 hover:bg-green-700',
+    card: 'bg-gradient-to-br from-yellow-900/40 via-green-900/40 to-blue-900/40',
+    link: 'text-blue-300 hover:text-yellow-200',
+    nav: 'bg-green-950/90',
+    projectsBg: 'bg-gradient-to-b from-yellow-950 via-green-950 to-blue-950',
+    aboutBg: 'bg-gradient-to-b from-blue-950 via-green-950 to-yellow-950'
+  },
+ 
 };
 
-const colors = colorSchemes.desert; // Try changing to other themes
+const colors = colorSchemes.futureRetro; // Try changing to other themes
 
 const App = () => {
   const projectsRef = useRef(null);
