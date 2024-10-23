@@ -2,6 +2,96 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const colorSchemes = {
+  // Sunset Gradient - Warm, sophisticated fade from golden hour to night
+  sunsetGradient: {
+    primary: 'from-amber-400 via-orange-500 to-rose-500',
+    accent: 'text-amber-300',
+    hover: 'hover:text-rose-300',
+    button: 'bg-orange-500 hover:bg-orange-600',
+    card: 'bg-gradient-to-br from-amber-900/40 via-orange-900/40 to-rose-900/40',
+    link: 'text-rose-300 hover:text-amber-200',
+    nav: 'bg-orange-950/90',
+    projectsBg: 'bg-gradient-to-b from-rose-500 via-rose-600 to-rose-900',
+    aboutBg: 'bg-gradient-to-b from-rose-900 to-rose-950'
+  },
+
+  // Ocean Depths - Smooth transition from surface to deep waters
+  oceanDepths: {
+    primary: 'from-sky-400 via-cyan-500 to-blue-600',
+    accent: 'text-sky-300',
+    hover: 'hover:text-blue-300',
+    button: 'bg-cyan-600 hover:bg-cyan-700',
+    card: 'bg-gradient-to-br from-sky-900/40 via-cyan-900/40 to-blue-900/40',
+    link: 'text-blue-300 hover:text-sky-200',
+    nav: 'bg-cyan-950/90',
+    projectsBg: 'bg-gradient-to-b from-blue-600 via-blue-800 to-blue-900',
+    aboutBg: 'bg-gradient-to-b from-blue-900 to-blue-950'
+  },
+
+  // Northern Lights - Ethereal aurora-inspired gradients
+  auroraGlow: {
+    primary: 'from-green-400 via-emerald-500 to-teal-600',
+    accent: 'text-green-300',
+    hover: 'hover:text-teal-300',
+    button: 'bg-emerald-600 hover:bg-emerald-700',
+    card: 'bg-gradient-to-br from-green-900/40 via-emerald-900/40 to-teal-900/40',
+    link: 'text-teal-300 hover:text-green-200',
+    nav: 'bg-emerald-950/90',
+    projectsBg: 'bg-gradient-to-b from-teal-600 via-teal-800 to-teal-900',
+    aboutBg: 'bg-gradient-to-b from-teal-900 to-teal-950'
+  },
+
+  // Twilight Purple - Rich purple gradients
+  twilightPurple: {
+    primary: 'from-fuchsia-400 via-purple-500 to-indigo-600',
+    accent: 'text-fuchsia-300',
+    hover: 'hover:text-indigo-300',
+    button: 'bg-purple-600 hover:bg-purple-700',
+    card: 'bg-gradient-to-br from-fuchsia-900/40 via-purple-900/40 to-indigo-900/40',
+    link: 'text-indigo-300 hover:text-fuchsia-200',
+    nav: 'bg-purple-950/90',
+    projectsBg: 'bg-gradient-to-b from-indigo-600 via-indigo-800 to-indigo-900',
+    aboutBg: 'bg-gradient-to-b from-indigo-900 to-indigo-950'
+  },
+
+  // Forest Mist - Natural greens with misty transitions
+  forestMist: {
+    primary: 'from-lime-400 via-green-500 to-emerald-600',
+    accent: 'text-lime-300',
+    hover: 'hover:text-emerald-300',
+    button: 'bg-green-600 hover:bg-green-700',
+    card: 'bg-gradient-to-br from-lime-900/40 via-green-900/40 to-emerald-900/40',
+    link: 'text-emerald-300 hover:text-lime-200',
+    nav: 'bg-green-950/90',
+    projectsBg: 'bg-gradient-to-b from-emerald-600 via-emerald-800 to-emerald-900',
+    aboutBg: 'bg-gradient-to-b from-emerald-900 to-emerald-950'
+  },
+
+  // Desert Night - Warm to cool transition
+  desertNight: {
+    primary: 'from-yellow-400 via-orange-500 to-purple-600',
+    accent: 'text-yellow-300',
+    hover: 'hover:text-purple-300',
+    button: 'bg-orange-600 hover:bg-orange-700',
+    card: 'bg-gradient-to-br from-yellow-900/40 via-orange-900/40 to-purple-900/40',
+    link: 'text-purple-300 hover:text-yellow-200',
+    nav: 'bg-orange-950/90',
+    projectsBg: 'bg-gradient-to-b from-purple-600 via-purple-800 to-purple-900',
+    aboutBg: 'bg-gradient-to-b from-purple-900 to-purple-950'
+  },
+
+  // Cosmic Dream - Space-inspired gradients
+  cosmicDream: {
+    primary: 'from-pink-400 via-violet-500 to-indigo-600',
+    accent: 'text-pink-300',
+    hover: 'hover:text-indigo-300',
+    button: 'bg-violet-600 hover:bg-violet-700',
+    card: 'bg-gradient-to-br from-pink-900/40 via-violet-900/40 to-indigo-900/40',
+    link: 'text-indigo-300 hover:text-pink-200',
+    nav: 'bg-violet-950/90',
+    projectsBg: 'bg-gradient-to-b from-indigo-600 via-indigo-800 to-indigo-900',
+    aboutBg: 'bg-gradient-to-b from-indigo-900 to-indigo-950'
+  },
   neoTokyo: {
     primary: 'from-pink-500 via-purple-500 to-cyan-400',
     accent: 'text-pink-300',
@@ -35,10 +125,20 @@ const colorSchemes = {
     projectsBg: 'bg-gradient-to-b from-yellow-950 via-green-950 to-blue-950',
     aboutBg: 'bg-gradient-to-b from-blue-950 via-green-950 to-yellow-950'
   },
- 
+  galaxy: {
+    primary: 'from-indigo-500 via-purple-500 to-pink-500',
+    accent: 'text-indigo-300',
+    hover: 'hover:text-purple-300',
+    button: 'bg-indigo-600 hover:bg-indigo-700',
+    card: 'bg-gradient-to-br from-indigo-900/40 via-purple-900/40 to-pink-900/40',
+    link: 'text-purple-300 hover:text-indigo-200',
+    nav: 'bg-indigo-950/90',
+    projectsBg: 'bg-gradient-to-b from-indigo-950 to-purple-950',
+    aboutBg: 'bg-gradient-to-b from-purple-950 to-pink-950'
+  },
 };
 
-const colors = colorSchemes.futureRetro; // Try changing to other themes
+const colors = colorSchemes.galaxy; // Try changing to other themes
 
 const App = () => {
   const projectsRef = useRef(null);
@@ -121,39 +221,60 @@ const App = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center space-y-6"
+          className="flex items-center justify-center w-full max-w-7xl px-4 sm:px-6 lg:px-8"
         >
-          <motion.h1 
-            className="text-7xl font-light mb-6 text-white"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.2 }}
+          {/* Left side: Text */}
+          <motion.div 
+            className="flex-1 space-y-6 text-left"
           >
-            Hi, I'm John
-          </motion.h1>
-          <motion.p 
-            className="text-3xl text-white/90"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
-            Software Developer
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1 }}
-          >
-            <motion.button
-              onClick={() => scrollToSection(projectsRef)}
-              className="mt-8 text-white/80 hover:text-white"
-              whileHover={{ y: 5 }}
+            <motion.h1 
+              className="text-7xl font-light mb-6 text-white"
+              whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.2 }}
             >
-              ↓ View My Work
-            </motion.button>
+              Hi, I'm John
+            </motion.h1>
+            <motion.p 
+              className="text-2xl text-white/90"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              Software Developer
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+            >
+              <motion.button
+                onClick={() => scrollToSection(projectsRef)}
+                className="mt-8 text-white/80 hover:text-white"
+                whileHover={{ y: 5 }}
+                transition={{ duration: 0.2 }}
+              >
+                ↓ View My Work
+              </motion.button>
+            </motion.div>
+          </motion.div>
+
+          {/* Right side: Image */}
+          <motion.div 
+            className="flex-1 flex justify-center"
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ delay: 0.5 }}
+          >
+            <img 
+              src="john-profile-pic.jpg" 
+              alt="John's profile picture" 
+              className="w-3/4 h-auto rounded-full object-cover shadow-lg"
+            />
           </motion.div>
         </motion.div>
       </section>
+
+
 
       {/* Projects Section */}
       <section ref={projectsRef} className={`min-h-screen py-20 ${colors.projectsBg}`}>
@@ -171,13 +292,13 @@ const App = () => {
               {
                 title: 'tremendo.pro',
                 description: 'Tremendo is a personal Kanban Board featuring an ExpressJS API and ReactJS front end.',
-                image: '/api/placeholder/600/300',
+                image: 'tremendo.png',
                 link: 'https://tremendo.pro/'
               },
               {
                 title: 'Disc Store',
                 description: 'Disc Golf Ecommerce store with admin portal for the seller to upload disc pictures and manage inventory.',
-                image: '/api/placeholder/600/300',
+                image: 'barry.png',
                 link: 'https://barrysdiscs.netlify.app/'
               }
             ].map((project, index) => (
