@@ -221,7 +221,7 @@ const App = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="flex items-center justify-center w-full max-w-7xl px-4 sm:px-6 lg:px-8"
+          className="flex flex-col md:flex-row items-center justify-center w-full h-2/3 max-w-7xl px-4 sm:px-6 lg:px-8" //try to fix the height here
         >
           {/* Left side: Text */}
           <motion.div 
