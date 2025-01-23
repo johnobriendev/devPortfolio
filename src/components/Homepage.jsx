@@ -9,9 +9,6 @@ function Homepage () {
      <div className='pt-24'>
       <AboutMe />
      </div>
-     {/* <div className='pb-24 mt-12 '>
-      <Skills />
-     </div> */}
     </div>
 
    
