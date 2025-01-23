@@ -1,8 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../contexts/LanguageContext';
 
 
 const OpenResumeButton = () => {
+  const { translations: t } = useLanguage();
+
+
   const openResume = () => {
     window.open('/JohnOBrienResume.pdf', '_blank');
   };
@@ -10,21 +14,13 @@ const OpenResumeButton = () => {
   return (
     <motion.button
         onClick={openResume}
-        className="hover:bg-neutral-500 border text-white py-2 px-4 rounded w-24"
-        whileHover={{ scale: 1.15 }}
+        className="hover:bg-neutral-500 border text-white py-2 px-6 rounded min-w-[96px]"
+        whileHover={{ scale: 1.10 }}
         whileTap={{ scale: 0.95 }}
     >
-        Resume
+        {t.contact.resume}
     </motion.button>
 );
-  // return (
-  //   <button 
-  //     onClick={openResume} 
-  //     className="text-white px-4 py-2 rounded border "
-  //   >
-  //      Resume
-  //   </button>
-  // );
 };
 
 export default OpenResumeButton;
