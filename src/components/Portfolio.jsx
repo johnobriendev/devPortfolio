@@ -116,15 +116,43 @@ const Portfolio = () => {
               <p>{t.about.hobbies}</p>
               
               <div className="mt-8 flex flex-col gap-3">
-                <a href="#" className="text-sky-400 hover:text-sky-500">
-                  {t.contact.email}
-                </a>
-                <a href="#" className="text-sky-400 hover:text-sky-500">
-                  {t.contact.github}
-                </a>
-                <a href="#" className="text-sky-400 hover:text-sky-500">
-                  {t.contact.linkedin}
-                </a>
+                <p className="flex items-baseline">
+                  <span>{t.contact.email.label}: </span>
+                  <motion.a 
+                    href={t.contact.email.url}
+                    className="text-sky-400 hover:text-sky-500 transition-colors ml-2"
+                    whileHover={{ x: 10 }}
+                    rel="noopener noreferrer"
+                  >
+                    {t.contact.email.value}
+                  </motion.a>
+                </p>
+                
+                <p className="flex items-baseline">
+                  <span>{t.contact.github.label}: </span>
+                  <motion.a 
+                    href={t.contact.github.url}
+                    className="text-sky-400 hover:text-sky-500 transition-colors ml-2"
+                    whileHover={{ x: 10 }}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t.contact.github.value}
+                  </motion.a>
+                </p>
+                
+                <p className="flex items-baseline">
+                  <span>{t.contact.linkedin.label}: </span>
+                  <motion.a 
+                    href={t.contact.linkedin.url}
+                    className="text-sky-400 hover:text-sky-500 transition-colors ml-2"
+                    whileHover={{ x: 10 }}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {t.contact.linkedin.value}
+                  </motion.a>
+                </p>
                 <div className="mt-2">
                   <OpenResumeButton />
                 </div>

@@ -25,9 +25,21 @@ export const es = {
     musicWebsite: "Sitio Web de Música"
   },
   contact: {
-    email: "Correo",
-    github: "GitHub",
-    linkedin: "LinkedIn",
+    email: {
+      label: "Correo",
+      value: "johnobrien.dev@gmail.com",
+      url: "mailto:johnobrien.dev@gmail.com"  // Replace with your email
+    },
+    github: {
+      label: "GitHub",
+      value: "github.com/johnobriendev",
+      url: "https://github.com/johnobriendev"  // Replace with your GitHub URL
+    },
+    linkedin: {
+      label: "LinkedIn",
+      value: "linkedin.com/in/johnobriendev",
+      url: "https://linkedin.com/in/johnobriendev"  // Replace with your LinkedIn URL
+    },
     resume: "Currículum"
   }
 };
