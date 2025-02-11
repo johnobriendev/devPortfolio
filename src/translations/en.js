@@ -15,6 +15,10 @@ export const en = {
     chordBuilder: {
       title: "Chord Builder",
       description: "Chord Builder allows the user to create chord or scale diagrams for the guitar and organize them on a sheet in either a 4x4, 6x6, or 8x8 layout. The user can then preview the chord sheet and download it as a pdf."
+    },
+    album: {
+      title: "Steve and John's Album",
+      description: "An independent music player that switches images based on the song its on. I recorded this album with my friend Steve in the fall of 2021 and have used this project as an opportunity to debut it."
     }
   },
   about: {

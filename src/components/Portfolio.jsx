@@ -87,6 +87,22 @@ const Portfolio = () => {
                 <TechIcon Icon={SiReact} label="React" />
               </div>
             </div>
+
+
+            {/* Album Project */}
+            <div className="mb-12">
+              <Link to="https://stevejohnalbum.netlify.app/" className="text-xl text-sky-400 hover:text-sky-500" target="_blank">
+                {t.projects.album.title}
+              </Link>
+              <p className="mt-2 mb-4">
+                {t.projects.album.description}
+              </p>
+              <img className="w-full rounded-lg shadow-lg mb-4" src="albumdemo.png" />
+                
+              <div className="flex justify-start mb-6">
+                <TechIcon Icon={SiReact} label="React" />
+              </div>
+            </div>
           </motion.div>
 
           {/* About Section */}
