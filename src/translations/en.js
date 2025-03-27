@@ -10,11 +10,15 @@ export const en = {
   projects: {
     tremendo: {
       title: "tremendo.pro",
-      description: "Tremendo is a project management and team collaboration app. I built it using Node.js, Express.js, and MongoDB for the server side and React.js for the user interface. I also used Resend for sending registration emails to users and Google Recaptcha for adding security during registration."
+      description: "Tremendo is a project management and team collaboration app."
     },
     chordBuilder: {
       title: "Chord Builder",
       description: "Chord Builder allows the user to create chord or scale diagrams for the guitar and organize them on a sheet in either a 4x4, 6x6, or 8x8 layout. The user can then preview the chord sheet and download it as a pdf."
+    },
+    notionesque: {
+      title: "Notionesque",
+      description: "Notionesque is a task management tool with Kanban and List views and search and filtering abilities."
     },
     album: {
       title: "Steve and John's Album",

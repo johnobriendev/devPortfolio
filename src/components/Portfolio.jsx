@@ -88,6 +88,23 @@ const Portfolio = () => {
               </div>
             </div>
 
+            {/* Notionesque Project */}
+            <div className="mb-12">
+              <Link to="https://notionesque.netlify.app/" className="text-xl text-sky-400 hover:text-sky-500" target="_blank">
+                {t.projects.notionesque.title}
+              </Link>
+              <p className="mt-2 mb-4">
+                {t.projects.notionesque.description}
+              </p>
+              <video className="w-full rounded-lg shadow-lg mb-4" controls>
+                <source src="notionesque.webm" type="video/webm" />
+                Your browser does not support the video tag.
+              </video>
+              <div className="flex justify-start mb-6">
+                <TechIcon Icon={SiReact} label="React" />
+              </div>
+            </div>
+
 
             {/* Album Project */}
             <div className="mb-12">
@@ -121,7 +138,7 @@ const Portfolio = () => {
                 {t.about.music}
                 <a 
                   className="text-sky-400 hover:text-sky-500 ml-2" 
-                  href="#" 
+                  href="https://johnobrienguitar.com/" 
                   target="_blank" 
                   rel="noopener noreferrer"
                 >

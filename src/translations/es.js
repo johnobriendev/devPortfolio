@@ -17,6 +17,10 @@ export const es = {
       title: "Chord Builder",
       description: "Chord Builder permite al usuario crear diagramas de acordes o escalas para guitarra y organizarlos en una hoja en diseños de 4x4, 6x6 u 8x8. El usuario puede previsualizar la hoja de acordes y descargarla como PDF."
     },
+    notionesque: {
+      title: "Notionesque",
+      description: "Notionesque es una herramienta de gestión de tareas con vistas Kanban y de Lista, y capacidades de búsqueda y filtrado."
+    },
     album: {
       title: "El Álbum de Steve y John",
       description: "Un reproductor de música independiente que cambia las imágenes según la canción que está sonando. Grabé este álbum con mi amigo Steve en el otoño de 2021 y he aprovechado este proyecto como una oportunidad para estrenarlo."
