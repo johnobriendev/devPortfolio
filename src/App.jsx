@@ -3,7 +3,7 @@ import Portfolio from './components/Portfolio'
 
 function App() {
   return (
-    <div className="min-h-screen font-light">
+    <div className="min-h-screen">
       <Portfolio />
     </div>
   )

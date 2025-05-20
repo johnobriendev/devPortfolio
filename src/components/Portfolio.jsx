@@ -7,6 +7,7 @@ const Portfolio = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [displayedText, setDisplayedText] = useState('');
   const [typingComplete, setTypingComplete] = useState(false);
+  const [enlargedImage, setEnlargedImage] = useState(null);
   const fullName = "JOHN O'BRIEN";
   
   // Handle scroll effect for navbar
@@ -40,6 +41,19 @@ const Portfolio = () => {
     }
   }, [displayedText, fullName]);
 
+  // Image enlargement
+  const openEnlargedImage = (imageSrc) => {
+    setEnlargedImage(imageSrc);
+    // Prevent body scrolling when modal is open
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeEnlargedImage = () => {
+    setEnlargedImage(null);
+    // Restore body scrolling
+    document.body.style.overflow = 'auto';
+  };
+
   // Resume opener function
   const openResume = () => {
     window.open('/JohnOBrienResume.pdf', '_blank');
@@ -58,8 +72,39 @@ const Portfolio = () => {
   };
 
   // Pure White & Cream color scheme
-  const mainColor = "#FFFFFF"; // Pure white (hero)
-  const secondaryColor = "#F5EBDD"; // Cream (projects)
+  // const mainColor = "#F5EBDD"; // Cream 
+  // const secondaryColor = "#FFFFFF"; // Pure white 
+
+  const mainColor = "#f9f4ec"; // Cream 
+  const secondaryColor = "#ecf1f9"; // Pure white
+
+  // Project data - makes it easier to render projects
+  const projects = [
+    {
+      id: "tremendo",
+      title: "TREMENDO",
+      description: "A kanban board productivity project management app. Features project management, payment processing, and portfolio showcasing.",
+      url: "https://tremendo.pro/",
+      image: "tremendo.png",
+      bgColor: secondaryColor
+    },
+    {
+      id: "learnthenotes",
+      title: "LEARN THE NOTES",
+      description: "Educational tool designed to help musicians learn and memorize notes on the guitar fretboard. Features sections on triads and scales as well as tips for learning.",
+      url: "https://learnthenotes.netlify.app",
+      image: "learnthenotes.png",
+      bgColor: mainColor
+    },
+    {
+      id: "chordbuilder",
+      title: "CHORD BUILDER",
+      description: "Interactive web application for guitarists to create chord and scale diagrams, organize them in a sheet, and export it as a PDF file.",
+      url: "https://chordbuilder.netlify.app/",
+      image: "chordbuilder.png",
+      bgColor: secondaryColor
+    }
+  ];
 
   return (
     <div style={{ backgroundColor: mainColor }} className="min-h-screen text-black">
@@ -144,147 +189,139 @@ const Portfolio = () => {
           transition={{ duration: 1.5 }}
           className="text-center"
         >
-          <h1 className="text-5xl md:text-7xl font-light tracking-wide h-20">
+          <h1 className="text-5xl md:text-8xl font-light tracking-wide h-24">
             {displayedText}
-            <span className={`inline-block w-0.5 h-8 md:h-12 bg-black ml-1 align-middle animate-blink ${typingComplete ? 'opacity-0' : ''}`}></span>
+            <span className={`inline-block w-0.5 h-10 md:h-14 bg-black ml-1 align-middle animate-blink ${typingComplete ? 'opacity-0' : ''}`}></span>
           </h1>
         </motion.div>
       </section>
       
-      {/* Tremendo Project Section */}
-      <section id="tremendo" className="min-h-screen flex items-center" style={{ backgroundColor: secondaryColor }}>
-        <div className="max-w-6xl mx-auto px-6 py-12 w-full">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Project Description */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-3xl md:text-4xl mb-6 font-light">TREMENDO</h2>
-              <p className="text-black/80 mb-8 text-lg">
-                A kanban board productivity project management app. Features project management, 
-                payment processing, and portfolio showcasing.
-              </p>
-              <motion.a 
-                href="https://tremendo.pro/" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block text-sm border-b border-black pb-1 hover:text-neutral-600 hover:border-neutral-600 transition-colors"
-                whileHover={{ x: 5 }}
-                transition={{ duration: 0.2 }}
+      {/* Project Sections */}
+      {projects.map((project, index) => (
+        <section 
+          id={project.id} 
+          key={project.id}
+          className="min-h-screen flex items-center" 
+          style={{ backgroundColor: project.bgColor }}
+        >
+          <div className="max-w-7xl mx-auto px-6 py-12 w-full">
+            {/* Mobile layout - text always on top */}
+            <div className="md:hidden flex flex-col gap-8">
+              <motion.div
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
               >
-                VIEW PROJECT
-              </motion.a>
-            </motion.div>
-            
-            {/* Screenshot Area */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-black/5 aspect-video rounded-lg overflow-hidden"
-            >
-              {/* Replace with actual screenshot */}
-              <div className="w-full h-full flex items-center justify-center">
-                <span className="text-black/50">Screenshot: Tremendo</span>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Chord Builder Project Section */}
-      <section id="chordbuilder" className="min-h-screen flex items-center" style={{ backgroundColor: mainColor }}>
-        <div className="max-w-6xl mx-auto px-6 py-12 w-full">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Screenshot Area */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="bg-black/5 aspect-video rounded-lg overflow-hidden"
-            >
-              {/* Replace with actual screenshot */}
-              <div className="w-full h-full flex items-center justify-center">
-                <span className="text-black/50">Screenshot: Chord Builder</span>
-              </div>
-            </motion.div>
-            
-            {/* Project Description */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <h2 className="text-3xl md:text-4xl mb-6 font-light">CHORD BUILDER</h2>
-              <p className="text-black/80 mb-8 text-lg">
-                Interactive web application for musicians to create, visualize, and hear chord progressions. 
-                Includes a virtual piano and music theory analysis.
-              </p>
-              <motion.a 
-                href="https://chordbuilder.netlify.app/" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block text-sm border-b border-black pb-1 hover:text-neutral-600 hover:border-neutral-600 transition-colors"
-                whileHover={{ x: 5 }}
-                transition={{ duration: 0.2 }}
+                <h2 className="text-4xl md:text-5xl mb-8 font-light">{project.title}</h2>
+                <p className="text-black/80 mb-10 text-xl leading-relaxed">
+                  {project.description}
+                </p>
+                <motion.a 
+                  href={project.url} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-block text-lg border-b border-black pb-1 hover:text-neutral-600 hover:border-neutral-600 transition-colors"
+                  whileHover={{ x: 5 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  VIEW PROJECT
+                </motion.a>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="cursor-pointer"
+                onClick={() => openEnlargedImage(project.image)}
               >
-                VIEW PROJECT
-              </motion.a>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Learn The Notes Project Section */}
-      <section id="learnthenotes" className="min-h-screen flex items-center" style={{ backgroundColor: secondaryColor }}>
-        <div className="max-w-6xl mx-auto px-6 py-12 w-full">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Project Description */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="text-3xl md:text-4xl mb-6 font-light">LEARN THE NOTES</h2>
-              <p className="text-black/80 mb-8 text-lg">
-                Educational tool designed to help musicians learn and memorize notes on the guitar fretboard.
-                Features interactive exercises, progress tracking, and customizable practice sessions.
-              </p>
-              <motion.a 
-                href="https://learnthenotes.netlify.app" 
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block text-sm border-b border-black pb-1 hover:text-neutral-600 hover:border-neutral-600 transition-colors"
-                whileHover={{ x: 5 }}
-                transition={{ duration: 0.2 }}
-              >
-                VIEW PROJECT
-              </motion.a>
-            </motion.div>
+                <img src={project.image} alt={project.title} className="w-full shadow-md hover:shadow-lg transition-shadow" />
+              </motion.div>
+            </div>
             
-            {/* Screenshot Area */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-black/5 aspect-video rounded-lg overflow-hidden"
-            >
-              {/* Replace with actual screenshot */}
-              <div className="w-full h-full flex items-center justify-center">
-                <span className="text-black/50">Screenshot: Learn The Notes</span>
-              </div>
-            </motion.div>
+            {/* Desktop layout - alternating */}
+            <div className="hidden md:grid md:grid-cols-5 gap-8 items-center">
+              {/* For even index, text on left (2 cols), image on right (3 cols) */}
+              {index % 2 === 0 ? (
+                <>
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="col-span-2"
+                  >
+                    <h2 className="text-4xl md:text-5xl mb-8 font-light">{project.title}</h2>
+                    <p className="text-black/80 mb-10 text-xl leading-relaxed">
+                      {project.description}
+                    </p>
+                    <motion.a 
+                      href={project.url} 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block text-lg border-b border-black pb-1 hover:text-neutral-600 hover:border-neutral-600 transition-colors"
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      VIEW PROJECT
+                    </motion.a>
+                  </motion.div>
+                  
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="cursor-pointer col-span-3"
+                    onClick={() => openEnlargedImage(project.image)}
+                  >
+                    <img src={project.image} alt={project.title} className="w-full shadow-md hover:shadow-lg transition-shadow" />
+                  </motion.div>
+                </>
+              ) : (
+                <>
+                  {/* For odd index, image on left (3 cols), text on right (2 cols) */}
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="cursor-pointer col-span-3"
+                    onClick={() => openEnlargedImage(project.image)}
+                  >
+                    <img src={project.image} alt={project.title} className="w-full shadow-md hover:shadow-lg transition-shadow" />
+                  </motion.div>
+                  
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6 }}
+                    className="col-span-2"
+                  >
+                    <h2 className="text-4xl md:text-5xl mb-8 font-light">{project.title}</h2>
+                    <p className="text-black/80 mb-10 text-xl leading-relaxed">
+                      {project.description}
+                    </p>
+                    <motion.a 
+                      href={project.url} 
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block text-lg border-b border-black pb-1 hover:text-neutral-600 hover:border-neutral-600 transition-colors"
+                      whileHover={{ x: 5 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      VIEW PROJECT
+                    </motion.a>
+                  </motion.div>
+                </>
+              )}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ))}
       
       {/* Contact Section - Simplified */}
       <section id="contact" className="min-h-screen flex items-center justify-center" style={{ backgroundColor: mainColor }}>
@@ -292,7 +329,7 @@ const Portfolio = () => {
           <div className="flex flex-col gap-10 items-center">
             <motion.a 
               href="mailto:johnobrien.dev@gmail.com"
-              className="text-xl tracking-wide hover:text-neutral-600 transition-colors"
+              className="text-2xl tracking-wide hover:text-neutral-600 transition-colors"
               whileHover={{ y: -5 }}
               transition={{ duration: 0.2 }}
             >
@@ -303,7 +340,7 @@ const Portfolio = () => {
               href="https://github.com/johnobriendev"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xl tracking-wide hover:text-neutral-600 transition-colors"
+              className="text-2xl tracking-wide hover:text-neutral-600 transition-colors"
               whileHover={{ y: -5 }}
               transition={{ duration: 0.2 }}
             >
@@ -314,7 +351,7 @@ const Portfolio = () => {
               href="https://linkedin.com/in/johnobriendev"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xl tracking-wide hover:text-neutral-600 transition-colors"
+              className="text-2xl tracking-wide hover:text-neutral-600 transition-colors"
               whileHover={{ y: -5 }}
               transition={{ duration: 0.2 }}
             >
@@ -323,7 +360,7 @@ const Portfolio = () => {
             
             <motion.button
               onClick={openResume}
-              className="text-xl tracking-wide hover:text-neutral-600 transition-colors bg-transparent border-none cursor-pointer"
+              className="text-2xl tracking-wide hover:text-neutral-600 transition-colors bg-transparent border-none cursor-pointer"
               whileHover={{ y: -5 }}
               transition={{ duration: 0.2 }}
             >
@@ -332,6 +369,35 @@ const Portfolio = () => {
           </div>
         </div>
       </section>
+
+      {/* Image Modal */}
+      {enlargedImage && (
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
+          onClick={closeEnlargedImage}
+        >
+          <motion.div 
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+            className="relative w-full max-h-[90vh]"
+            onClick={e => e.stopPropagation()} // Prevent closing when clicking the image
+          >
+            <img 
+              src={enlargedImage} 
+              alt="Enlarged project view" 
+              className="w-full max-h-[90vh] object-contain mx-auto"
+            />
+            <button 
+              className="absolute top-4 right-4 text-white bg-black bg-opacity-70 w-10 h-10 rounded-full flex items-center justify-center hover:bg-opacity-100 transition-all"
+              onClick={closeEnlargedImage}
+            >
+              ✕
+            </button>
+          </motion.div>
+        </motion.div>
+      )}
     </div>
   );
 };
