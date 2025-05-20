@@ -1,324 +1,339 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
-import { SiReact, SiExpress, SiMongodb, SiNodedotjs } from 'react-icons/si';
-import { useLanguage } from '../contexts/LanguageContext';
-import OpenResumeButton from './OpenResumeButton';
 
+// Portfolio component with Pure White & Cream color scheme
 const Portfolio = () => {
-  const { translations: t, language, toggleLanguage } = useLanguage();
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [displayedText, setDisplayedText] = useState('');
+  const [typingComplete, setTypingComplete] = useState(false);
+  const fullName = "JOHN O'BRIEN";
+  
+  // Handle scroll effect for navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 20;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [scrolled]);
 
-  const slideIn = {
-    hidden: { x: 50, opacity: 0 },
-    visible: { x: 0, opacity: 1 }
+  // Typewriter effect
+  useEffect(() => {
+    if (displayedText.length < fullName.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText(fullName.slice(0, displayedText.length + 1));
+      }, 150);
+      
+      return () => clearTimeout(timeout);
+    } else {
+      // Set typing complete after a short delay
+      const completeTimeout = setTimeout(() => {
+        setTypingComplete(true);
+      }, 800);
+      
+      return () => clearTimeout(completeTimeout);
+    }
+  }, [displayedText, fullName]);
+
+  // Resume opener function
+  const openResume = () => {
+    window.open('/JohnOBrienResume.pdf', '_blank');
   };
 
-  const TechIcon = ({ Icon, label }) => (
-    <div className="flex flex-col items-center mx-2 group">
-      <Icon className="w-6 h-6 text-sky-400 group-hover:text-sky-300 transition-colors" />
-      <span className="text-sm mt-1">{label}</span>
-    </div>
-  );
+  // Smooth scroll function
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      window.scrollTo({
+        top: element.offsetTop,
+        behavior: 'smooth'
+      });
+    }
+    if (mobileMenuOpen) setMobileMenuOpen(false);
+  };
+
+  // Pure White & Cream color scheme
+  const mainColor = "#FFFFFF"; // Pure white (hero)
+  const secondaryColor = "#F5EBDD"; // Cream (projects)
 
   return (
-    <div className="min-h-screen">
-      {/* Navbar */}
-      <nav className="fixed top-0 left-0 w-full shadow-md z-10 bg-gray-800">
-        <div className="px-8 py-4 flex justify-between items-center">
-          <Link to="/">
-            <h1 className="text-xl md:text-3xl">{t.nav.title}</h1>
-          </Link>
+    <div style={{ backgroundColor: mainColor }} className="min-h-screen text-black">
+      {/* Navbar - Transparent and Minimal */}
+      <header className={`fixed top-0 left-0 w-full z-10 transition-all duration-300 ${
+        scrolled ? 'backdrop-blur-sm shadow-sm' : ''
+      }`} style={{ backgroundColor: scrolled ? `${mainColor}80` : 'transparent' }}>
+        <div className="max-w-5xl mx-auto px-6 py-6 flex justify-end items-center">
+          {/* Home link - only visible when scrolled */}
+          {scrolled && (
+            <button
+              onClick={() => scrollToSection('hero')}
+              className="mr-auto text-sm hover:text-neutral-600 transition-colors bg-transparent border-none cursor-pointer"
+            >
+              HOME
+            </button>
+          )}
+          
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex gap-10">
+            <button 
+              onClick={() => scrollToSection('tremendo')} 
+              className="text-sm hover:text-neutral-600 transition-colors bg-transparent border-none cursor-pointer"
+            >
+              WORK
+            </button>
+            <button 
+              onClick={() => scrollToSection('contact')} 
+              className="text-sm hover:text-neutral-600 transition-colors bg-transparent border-none cursor-pointer"
+            >
+              CONTACT
+            </button>
+          </nav>
+          
+          {/* Mobile Menu Button */}
           <button 
-            onClick={toggleLanguage}
-            className="px-4 py-2 rounded bg-sky-600 hover:bg-sky-700 transition-colors"
+            className="md:hidden"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
-            {t.nav.languageButton}
+            <div className="w-6 space-y-1.5">
+              <div className={`w-6 h-0.5 bg-black transition-all ${mobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`}></div>
+              <div className={`w-6 h-0.5 bg-black transition-opacity ${mobileMenuOpen ? 'opacity-0' : 'opacity-100'}`}></div>
+              <div className={`w-6 h-0.5 bg-black transition-all ${mobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`}></div>
+            </div>
           </button>
         </div>
-      </nav>
-
-      {/* Main Content */}
-      <div className="px-6 md:px-12 pt-24 pb-12">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-[2fr,1fr] gap-8">
-          {/* Work Section */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={slideIn}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
-            <h3 className="text-2xl mb-8 border-b border-sky-400 pb-2">
-              {t.sections.work}
-            </h3>
-            
-            {/* Tremendo Project */}
-            <div className="mb-12">
-              <Link to="https://tremendo.pro/" className="text-xl text-sky-400 hover:text-sky-500" target="_blank">
-                {t.projects.tremendo.title}
-              </Link>
-              <p className="mt-2 mb-4">
-                {t.projects.tremendo.description}
-              </p>
-              <video className="w-full rounded-lg shadow-lg mb-4" controls>
-                <source src="tremendo-demo.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              <div className="flex justify-start space-x-4 mb-6">
-                <TechIcon Icon={SiReact} label="React" />
-                <TechIcon Icon={SiExpress} label="Express" />
-                <TechIcon Icon={SiMongodb} label="MongoDB" />
-                <TechIcon Icon={SiNodedotjs} label="Node" />
-              </div>
-            </div>
-
-            {/* Chord Builder Project */}
-            <div className="mb-12">
-              <Link to="https://chordbuilder.netlify.app/" className="text-xl text-sky-400 hover:text-sky-500" target="_blank">
-                {t.projects.chordBuilder.title}
-              </Link>
-              <p className="mt-2 mb-4">
-                {t.projects.chordBuilder.description}
-              </p>
-              <video className="w-full rounded-lg shadow-lg mb-4" controls>
-                <source src="cb-demo.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
-              <div className="flex justify-start mb-6">
-                <TechIcon Icon={SiReact} label="React" />
-              </div>
-            </div>
-
-            {/* Notionesque Project */}
-            <div className="mb-12">
-              <Link to="https://notionesque.netlify.app/" className="text-xl text-sky-400 hover:text-sky-500" target="_blank">
-                {t.projects.notionesque.title}
-              </Link>
-              <p className="mt-2 mb-4">
-                {t.projects.notionesque.description}
-              </p>
-              <video className="w-full rounded-lg shadow-lg mb-4" controls>
-                <source src="notionesque.webm" type="video/webm" />
-                Your browser does not support the video tag.
-              </video>
-              <div className="flex justify-start mb-6">
-                <TechIcon Icon={SiReact} label="React" />
-              </div>
-            </div>
-
-
-            {/* Album Project */}
-            <div className="mb-12">
-              <Link to="https://stevejohnalbum.netlify.app/" className="text-xl text-sky-400 hover:text-sky-500" target="_blank">
-                {t.projects.album.title}
-              </Link>
-              <p className="mt-2 mb-4">
-                {t.projects.album.description}
-              </p>
-              <img className="w-full rounded-lg shadow-lg mb-4" src="albumdemo.png" />
-                
-              <div className="flex justify-start mb-6">
-                <TechIcon Icon={SiReact} label="React" />
-              </div>
-            </div>
-          </motion.div>
-
-          {/* About Section */}
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={slideIn}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="md:pl-8 md:border-l md:border-sky-400/20"
-          >
-            <h3 className="text-2xl mb-8 border-b border-sky-400 pb-2">
-              {t.sections.about}
-            </h3>
-            <div className="flex flex-col gap-6">
-              <p>
-                {t.about.music}
-                <a 
-                  className="text-sky-400 hover:text-sky-500 ml-2" 
-                  href="https://johnobrienguitar.com/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  {t.about.musicWebsite}
-                </a>
-              </p>
-              <p>{t.about.travel}</p>
-              <p>{t.about.hobbies}</p>
-              
-              <div className="mt-8 flex flex-col gap-3">
-                <p className="flex items-baseline">
-                  <span>{t.contact.email.label}: </span>
-                  <motion.a 
-                    href={t.contact.email.url}
-                    className="text-sky-400 hover:text-sky-500 transition-colors ml-2"
-                    whileHover={{ x: 10 }}
-                    rel="noopener noreferrer"
-                  >
-                    {t.contact.email.value}
-                  </motion.a>
-                </p>
-                
-                <p className="flex items-baseline">
-                  <span>{t.contact.github.label}: </span>
-                  <motion.a 
-                    href={t.contact.github.url}
-                    className="text-sky-400 hover:text-sky-500 transition-colors ml-2"
-                    whileHover={{ x: 10 }}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {t.contact.github.value}
-                  </motion.a>
-                </p>
-                
-                <p className="flex items-baseline">
-                  <span>{t.contact.linkedin.label}: </span>
-                  <motion.a 
-                    href={t.contact.linkedin.url}
-                    className="text-sky-400 hover:text-sky-500 transition-colors ml-2"
-                    whileHover={{ x: 10 }}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {t.contact.linkedin.value}
-                  </motion.a>
-                </p>
-                <div className="mt-2">
-                  <OpenResumeButton />
-                </div>
-              </div>
-            </div>
-          </motion.div>
+        
+        {/* Mobile Menu */}
+        <div className={`md:hidden backdrop-blur-sm transition-all duration-300 overflow-hidden ${
+          mobileMenuOpen ? 'max-h-40 py-4' : 'max-h-0'
+        }`} style={{ backgroundColor: `${secondaryColor}80` }}>
+          <div className="px-6 flex flex-col gap-4">
+            {scrolled && (
+              <button 
+                className="py-2 text-sm text-left bg-transparent border-none" 
+                onClick={() => scrollToSection('hero')}
+              >
+                HOME
+              </button>
+            )}
+            <button 
+              className="py-2 text-sm text-left bg-transparent border-none" 
+              onClick={() => scrollToSection('tremendo')}
+            >
+              WORK
+            </button>
+            <button 
+              className="py-2 text-sm text-left bg-transparent border-none" 
+              onClick={() => scrollToSection('contact')}
+            >
+              CONTACT
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
+      
+      {/* Hero Section */}
+      <section id="hero" className="min-h-screen flex items-center justify-center" style={{ backgroundColor: mainColor }}>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          className="text-center"
+        >
+          <h1 className="text-5xl md:text-7xl font-light tracking-wide h-20">
+            {displayedText}
+            <span className={`inline-block w-0.5 h-8 md:h-12 bg-black ml-1 align-middle animate-blink ${typingComplete ? 'opacity-0' : ''}`}></span>
+          </h1>
+        </motion.div>
+      </section>
+      
+      {/* Tremendo Project Section */}
+      <section id="tremendo" className="min-h-screen flex items-center" style={{ backgroundColor: secondaryColor }}>
+        <div className="max-w-6xl mx-auto px-6 py-12 w-full">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Project Description */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl md:text-4xl mb-6 font-light">TREMENDO</h2>
+              <p className="text-black/80 mb-8 text-lg">
+                A kanban board productivity project management app. Features project management, 
+                payment processing, and portfolio showcasing.
+              </p>
+              <motion.a 
+                href="https://tremendo.pro/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-sm border-b border-black pb-1 hover:text-neutral-600 hover:border-neutral-600 transition-colors"
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
+              >
+                VIEW PROJECT
+              </motion.a>
+            </motion.div>
+            
+            {/* Screenshot Area */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-black/5 aspect-video rounded-lg overflow-hidden"
+            >
+              {/* Replace with actual screenshot */}
+              <div className="w-full h-full flex items-center justify-center">
+                <span className="text-black/50">Screenshot: Tremendo</span>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Chord Builder Project Section */}
+      <section id="chordbuilder" className="min-h-screen flex items-center" style={{ backgroundColor: mainColor }}>
+        <div className="max-w-6xl mx-auto px-6 py-12 w-full">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Screenshot Area */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-black/5 aspect-video rounded-lg overflow-hidden"
+            >
+              {/* Replace with actual screenshot */}
+              <div className="w-full h-full flex items-center justify-center">
+                <span className="text-black/50">Screenshot: Chord Builder</span>
+              </div>
+            </motion.div>
+            
+            {/* Project Description */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <h2 className="text-3xl md:text-4xl mb-6 font-light">CHORD BUILDER</h2>
+              <p className="text-black/80 mb-8 text-lg">
+                Interactive web application for musicians to create, visualize, and hear chord progressions. 
+                Includes a virtual piano and music theory analysis.
+              </p>
+              <motion.a 
+                href="https://chordbuilder.netlify.app/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-sm border-b border-black pb-1 hover:text-neutral-600 hover:border-neutral-600 transition-colors"
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
+              >
+                VIEW PROJECT
+              </motion.a>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Learn The Notes Project Section */}
+      <section id="learnthenotes" className="min-h-screen flex items-center" style={{ backgroundColor: secondaryColor }}>
+        <div className="max-w-6xl mx-auto px-6 py-12 w-full">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Project Description */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl md:text-4xl mb-6 font-light">LEARN THE NOTES</h2>
+              <p className="text-black/80 mb-8 text-lg">
+                Educational tool designed to help musicians learn and memorize notes on the guitar fretboard.
+                Features interactive exercises, progress tracking, and customizable practice sessions.
+              </p>
+              <motion.a 
+                href="https://learnthenotes.netlify.app" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block text-sm border-b border-black pb-1 hover:text-neutral-600 hover:border-neutral-600 transition-colors"
+                whileHover={{ x: 5 }}
+                transition={{ duration: 0.2 }}
+              >
+                VIEW PROJECT
+              </motion.a>
+            </motion.div>
+            
+            {/* Screenshot Area */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-black/5 aspect-video rounded-lg overflow-hidden"
+            >
+              {/* Replace with actual screenshot */}
+              <div className="w-full h-full flex items-center justify-center">
+                <span className="text-black/50">Screenshot: Learn The Notes</span>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+      
+      {/* Contact Section - Simplified */}
+      <section id="contact" className="min-h-screen flex items-center justify-center" style={{ backgroundColor: mainColor }}>
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="flex flex-col gap-10 items-center">
+            <motion.a 
+              href="mailto:johnobrien.dev@gmail.com"
+              className="text-xl tracking-wide hover:text-neutral-600 transition-colors"
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.2 }}
+            >
+              JOHNOBRIEN.DEV@GMAIL.COM
+            </motion.a>
+            
+            <motion.a 
+              href="https://github.com/johnobriendev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xl tracking-wide hover:text-neutral-600 transition-colors"
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.2 }}
+            >
+              GITHUB
+            </motion.a>
+            
+            <motion.a 
+              href="https://linkedin.com/in/johnobriendev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xl tracking-wide hover:text-neutral-600 transition-colors"
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.2 }}
+            >
+              LINKEDIN
+            </motion.a>
+            
+            <motion.button
+              onClick={openResume}
+              className="text-xl tracking-wide hover:text-neutral-600 transition-colors bg-transparent border-none cursor-pointer"
+              whileHover={{ y: -5 }}
+              transition={{ duration: 0.2 }}
+            >
+              RESUME
+            </motion.button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
 
 export default Portfolio;
-
-
-
-// import React from 'react';
-// import { motion } from 'framer-motion';
-// import { Link } from 'react-router-dom';
-// import { SiReact, SiExpress, SiMongodb, SiNodedotjs } from 'react-icons/si';
-// import OpenResumeButton from './OpenResumeButton';
-
-// const Portfolio = () => {
-//   const slideIn = {
-//     hidden: { x: 50, opacity: 0 },
-//     visible: { x: 0, opacity: 1 }
-//   };
-
-//   const TechIcon = ({ Icon, label }) => (
-//     <div className="flex flex-col items-center mx-2">
-//       <Icon className="w-6 h-6 text-sky-400 group-hover:text-sky-300 transition-colors" />
-//       <span className="text-sm mt-1">{label}</span>
-//     </div>
-//   );
-
-//   return (
-//     <div className="min-h-screen bg-neutral-700 text-sky-100 font-extralight">
-//       {/* Navbar */}
-//       <nav className="fixed top-0 left-0 w-full shadow-md z-10 bg-gray-800">
-//         <div className="px-8 py-4">
-//           <Link to="/">
-//             <h1 className="text-xl md:text-3xl">John O'Brien</h1>
-//           </Link>
-//         </div>
-//       </nav>
-
-//       {/* Main Content */}
-//       <div className="px-6 md:px-12 pt-24 pb-12">
-//         <div className="max-w-7xl mx-auto grid md:grid-cols-[2fr,1fr] gap-8">
-//           {/* Work Section */}
-//           <motion.div
-//             initial="hidden"
-//             animate="visible"
-//             variants={slideIn}
-//             transition={{ duration: 0.8, delay: 0.5 }}
-//           >
-//             <h3 className="text-2xl mb-8 border-b border-sky-400 pb-2">Projects</h3>
-            
-//             {/* Tremendo Project */}
-//             <div className="mb-12">
-//               <Link to="https://tremendo.pro/" className="text-xl text-sky-400 hover:text-sky-500" target="_blank">
-//                 tremendo.pro
-//               </Link>
-//               <p className="mt-2 mb-4">
-//                 Tremendo is a project management and team collaboration app. Users create Kanban boards to help them manage personal projects or work in a team environment. The app has a simple design with user friendly drag-and-drop implemented.
-//               </p>
-//               <video className="w-full rounded-lg shadow-lg mb-4" controls>
-//                 <source src="tremendo-demo.mp4" type="video/mp4" />
-//                 Your browser does not support the video tag.
-//               </video>
-//               <div className="flex justify-start space-x-4 mb-6">
-//                 <TechIcon Icon={SiReact} label="React" />
-//                 <TechIcon Icon={SiExpress} label="Express" />
-//                 <TechIcon Icon={SiMongodb} label="MongoDB" />
-//                 <TechIcon Icon={SiNodedotjs} label="Node" />
-//               </div>
-//             </div>
-
-//             {/* Chord Builder Project */}
-//             <div className="mb-12">
-//               <Link to="https://chordbuilder.netlify.app/" className="text-xl text-sky-400 hover:text-sky-500" target="_blank">
-//                 Chord Builder
-//               </Link>
-//               <p className="mt-2 mb-4">
-//                 Chord Builder allows the user to create chord or scale diagrams for the guitar 
-//                 and organize them on a sheet in either a 4x4, 6x6, or 8x8 layout. The user can 
-//                 then preview the chord sheet and download it as a pdf.
-//               </p>
-//               <video className="w-full rounded-lg shadow-lg mb-4" controls>
-//                 <source src="cb-demo.mp4" type="video/mp4" />
-//                 Your browser does not support the video tag.
-//               </video>
-//               <div className="flex justify-start mb-6">
-//                 <TechIcon Icon={SiReact} label="React" />
-//               </div>
-//             </div>
-//           </motion.div>
-
-//           {/* About Section */}
-//           <motion.div
-//             initial="hidden"
-//             animate="visible"
-//             variants={slideIn}
-//             transition={{ duration: 0.8, delay: 1 }}
-//             className="md:pl-8 md:border-l md:border-sky-400/20"
-//           >
-//             <h3 className="text-2xl mb-8 border-b border-sky-400 pb-2">About Me</h3>
-//             <div className="flex flex-col gap-6">
-//               <p>
-//                 I have been a professional musician for over 10 years! I still teach and perform.
-//                 <a className="text-sky-400 hover:text-sky-500 ml-2" href="#" target="_blank" rel="noopener noreferrer">
-//                   Music Website
-//                 </a>
-//               </p>
-//               <p>
-//                 I lived in Chile and Argentina for 2 years and was living in Buenos Aires when 
-//                 Argentina won the World Cup. I love learning languages and different dialects.
-//               </p>
-//               <p>When I'm not working I love to play golf and drink mate.</p>
-              
-//               <div className="mt-8 flex flex-col gap-3">
-//                 <p>Email: <a href="mailto:johnobrien.dev@gmail.com" className="underline hover:text-sky-500" target="_blank">johnobrien.dev@gmail.com</a></p>
-//                 <p>Github: <a href="https://github.com/johnobriendev" className="underline  hover:text-sky-500" target="_blank">johnobriendev</a></p>
-//                 <p className="mb-10">LinkedIn: <a href="https://www.linkedin.com/in/johnobriendev/" className="underline  hover:text-sky-500" target="_blank">johnobriendev</a></p>
-
-//                 <OpenResumeButton />
-//               </div>
-//             </div>
-//           </motion.div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Portfolio;
