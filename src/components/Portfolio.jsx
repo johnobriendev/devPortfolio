@@ -72,11 +72,8 @@ const Portfolio = () => {
   };
 
   // Pure White & Cream color scheme
-  // const mainColor = "#F5EBDD"; // Cream 
-  // const secondaryColor = "#FFFFFF"; // Pure white 
-
-  const mainColor = "#f9f4ec"; // Cream 
-  const secondaryColor = "#ecf1f9"; // Pure white
+  const mainColor = "#f9f4ec"; 
+  const secondaryColor = "#ecf1f9"; 
 
   // Project data - makes it easier to render projects
   const projects = [
@@ -91,17 +88,33 @@ const Portfolio = () => {
     {
       id: "learnthenotes",
       title: "LEARN THE NOTES",
-      description: "Educational tool designed to help musicians learn and memorize notes on the guitar fretboard. Features sections on triads and scales as well as tips for learning.",
+      description: "Educational tool designed to help musicians learn and memorize notes on the guitar fretboard. Features interactive exercises, progress tracking, and customizable practice sessions.",
       url: "https://learnthenotes.netlify.app",
       image: "learnthenotes.png",
       bgColor: mainColor
     },
     {
+      id: "notionesque",
+      title: "NOTIONESQUE",
+      description: "Notionesque is a task management tool with Kanban and List views and search and filtering abilities. Features drag-and-drop functionality and categorized task organization.",
+      url: "https://notionesque.netlify.app/",
+      image: "notionesque.png",
+      bgColor: secondaryColor
+    },
+    {
       id: "chordbuilder",
       title: "CHORD BUILDER",
-      description: "Interactive web application for guitarists to create chord and scale diagrams, organize them in a sheet, and export it as a PDF file.",
+      description: "Interactive web application for musicians to create, visualize, and hear chord progressions. Includes a virtual piano and music theory analysis.",
       url: "https://chordbuilder.netlify.app/",
       image: "chordbuilder.png",
+      bgColor: mainColor
+    },
+    {
+      id: "album",
+      title: "STEVE AND JOHN'S ALBUM",
+      description: "An independent music player that switches images based on the current song. I recorded this album with my friend Steve in the fall of 2021 and have used this project as an opportunity to debut it.",
+      url: "https://steveandjohnalbum.netlify.app/",
+      image: "albumdemo.png",
       bgColor: secondaryColor
     }
   ];
@@ -189,7 +202,7 @@ const Portfolio = () => {
           transition={{ duration: 1.5 }}
           className="text-center"
         >
-          <h1 className="text-5xl md:text-8xl font-light tracking-wide h-24">
+          <h1 className="text-6xl md:text-8xl font-light tracking-wide h-24">
             {displayedText}
             <span className={`inline-block w-0.5 h-10 md:h-14 bg-black ml-1 align-middle animate-blink ${typingComplete ? 'opacity-0' : ''}`}></span>
           </h1>
