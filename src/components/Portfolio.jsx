@@ -80,7 +80,7 @@ const Portfolio = () => {
     {
       id: "tremendo",
       title: "TREMENDO",
-      description: "A kanban board productivity project management app. Features project management, payment processing, and portfolio showcasing.",
+      description: "A kanban board project management app. Users can create and manage tasks, lists, and projects while inviting others to collaborate on them.",
       url: "https://tremendo.pro/",
       image: "tremendo.png",
       bgColor: secondaryColor
@@ -88,7 +88,7 @@ const Portfolio = () => {
     {
       id: "learnthenotes",
       title: "LEARN THE NOTES",
-      description: "Educational tool designed to help musicians learn and memorize notes on the guitar fretboard. Features interactive exercises, progress tracking, and customizable practice sessions.",
+      description: "Educational tool designed to help musicians learn and memorize notes on the guitar fretboard. Includes sections about triads and scales and includes tips for learning.",
       url: "https://learnthenotes.netlify.app",
       image: "learnthenotes.png",
       bgColor: mainColor
@@ -96,7 +96,7 @@ const Portfolio = () => {
     {
       id: "notionesque",
       title: "NOTIONESQUE",
-      description: "Notionesque is a task management tool with Kanban and List views and search and filtering abilities. Features drag-and-drop functionality and categorized task organization.",
+      description: "Notionesque is a task management tool with Kanban and List views and search and filtering abilities. Features drag-and-drop functionality, pagination, and undo/redo functionality.",
       url: "https://notionesque.netlify.app/",
       image: "notionesque.png",
       bgColor: secondaryColor
@@ -104,7 +104,7 @@ const Portfolio = () => {
     {
       id: "chordbuilder",
       title: "CHORD BUILDER",
-      description: "Interactive web application for musicians to create, visualize, and hear chord progressions. Includes a virtual piano and music theory analysis.",
+      description: "Interactive web application for guitarists to create chord and scale diagrams for guitar and arrange them on a sheet that they can export as a PDF file.",
       url: "https://chordbuilder.netlify.app/",
       image: "chordbuilder.png",
       bgColor: mainColor
