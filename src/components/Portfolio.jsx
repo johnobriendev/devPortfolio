@@ -113,7 +113,7 @@ const Portfolio = () => {
       id: "album",
       title: "STEVE AND JOHN'S ALBUM",
       description: "An independent music player that switches images based on the current song. I recorded this album with my friend Steve in the fall of 2021 and have used this project as an opportunity to debut it.",
-      url: "https://steveandjohnalbum.netlify.app/",
+      url: "https://stevejohnalbum.netlify.app/",
       image: "albumdemo.png",
       bgColor: secondaryColor
     }
