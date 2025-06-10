@@ -86,12 +86,20 @@ const Portfolio = () => {
       bgColor: secondaryColor
     },
     {
+      id: "chordbuilder",
+      title: "CHORD BUILDER",
+      description: "Interactive web application for guitarists to create chord and scale diagrams for guitar and arrange them on a sheet that they can export as a PDF file.",
+      url: "https://chordbuilder.netlify.app/",
+      image: "chordbuilder.png",
+      bgColor: mainColor
+    },
+    {
       id: "learnthenotes",
       title: "LEARN THE NOTES",
       description: "Educational tool designed to help musicians learn and memorize notes on the guitar fretboard. Includes sections about triads and scales and includes tips for learning.",
       url: "https://learnthenotes.netlify.app",
       image: "learnthenotes.png",
-      bgColor: mainColor
+      bgColor: secondaryColor
     },
     {
       id: "notionesque",
@@ -99,14 +107,6 @@ const Portfolio = () => {
       description: "Notionesque is a task management tool with Kanban and List views and search and filtering abilities. Features drag-and-drop functionality, pagination, and undo/redo functionality.",
       url: "https://notionesque.netlify.app/",
       image: "notionesque.png",
-      bgColor: secondaryColor
-    },
-    {
-      id: "chordbuilder",
-      title: "CHORD BUILDER",
-      description: "Interactive web application for guitarists to create chord and scale diagrams for guitar and arrange them on a sheet that they can export as a PDF file.",
-      url: "https://chordbuilder.netlify.app/",
-      image: "chordbuilder.png",
       bgColor: mainColor
     },
     {
