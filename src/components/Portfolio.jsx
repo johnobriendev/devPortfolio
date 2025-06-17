@@ -238,7 +238,7 @@ const Portfolio = () => {
                   whileHover={{ x: 5 }}
                   transition={{ duration: 0.2 }}
                 >
-                  VIEW PROJECT
+                  LIVE SITE
                 </motion.a>
               </motion.div>
               
@@ -278,7 +278,7 @@ const Portfolio = () => {
                       whileHover={{ x: 5 }}
                       transition={{ duration: 0.2 }}
                     >
-                      VIEW PROJECT
+                      LIVE SITE
                     </motion.a>
                   </motion.div>
                   
@@ -326,7 +326,7 @@ const Portfolio = () => {
                       whileHover={{ x: 5 }}
                       transition={{ duration: 0.2 }}
                     >
-                      VIEW PROJECT
+                      LIVE SITE
                     </motion.a>
                   </motion.div>
                 </>
