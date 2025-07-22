@@ -77,12 +77,12 @@ const Portfolio = () => {
 
   // Project data - makes it easier to render projects
   const projects = [
-    {
-      id: "tremendo",
-      title: "TREMENDO",
-      description: "A kanban board project management app. Users can create and manage tasks, lists, and projects while inviting others to collaborate on them.",
-      url: "https://tremendo.pro/",
-      image: "tremendo.png",
+     {
+      id: "esque",
+      title: "ESQUE",
+      description: "Esque is a teams app with role-based project management capabilities including: Kanban and List views, conflict resolution,and search and filtering. Other features are drag-and-drop functionality, pagination, and undo/redo functionality.",
+      url: "https://esque.click/",
+      image: "notionesque.png",
       bgColor: secondaryColor
     },
     {
@@ -101,14 +101,14 @@ const Portfolio = () => {
       image: "learnthenotes.png",
       bgColor: secondaryColor
     },
-    {
-      id: "notionesque",
-      title: "NOTIONESQUE",
-      description: "Notionesque is a task management tool with Kanban and List views and search and filtering abilities. Features drag-and-drop functionality, pagination, and undo/redo functionality.",
-      url: "https://notionesque.netlify.app/",
-      image: "notionesque.png",
+     {
+      id: "tremendo",
+      title: "TREMENDO",
+      description: "A kanban board project management app. Users can create and manage tasks, lists, and projects while inviting others to collaborate on them.",
+      url: "https://tremendo.pro/",
+      image: "tremendo.png",
       bgColor: mainColor
-    },
+    },   
     {
       id: "album",
       title: "STEVE AND JOHN'S ALBUM",
