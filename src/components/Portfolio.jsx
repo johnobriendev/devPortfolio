@@ -105,7 +105,7 @@ const Portfolio = () => {
       id: "tremendo",
       title: "TREMENDO",
       description: "A kanban board project management app. Users can create and manage tasks, lists, and projects while inviting others to collaborate on them.",
-      url: "https://tremendo.pro/",
+      url: "https://tremendopro.netlify.app/",
       image: "tremendo.png",
       bgColor: mainColor
     },   
