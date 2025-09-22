@@ -95,9 +95,9 @@ const Portfolio = () => {
     },
     {
       id: "learnthenotes",
-      title: "LEARN THE NOTES",
+      title: "YOU CAN LEARN THE NOTES",
       description: "Educational tool designed to help musicians learn and memorize notes on the guitar fretboard. Includes sections about triads and scales and includes tips for learning.",
-      url: "https://learnthenotes.netlify.app",
+      url: "https://youcanlearnthenotes.netlify.app",
       image: "learnthenotes.png",
       bgColor: secondaryColor
     },
