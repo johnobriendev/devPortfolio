@@ -138,8 +138,8 @@ const Portfolio = () => {
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex gap-10">
-            <button 
-              onClick={() => scrollToSection('tremendo')} 
+            <button
+              onClick={() => scrollToSection('esque')}
               className="text-sm hover:text-neutral-600 transition-colors bg-transparent border-none cursor-pointer"
             >
               WORK
@@ -178,9 +178,9 @@ const Portfolio = () => {
                 HOME
               </button>
             )}
-            <button 
-              className="py-2 text-sm text-left bg-transparent border-none" 
-              onClick={() => scrollToSection('tremendo')}
+            <button
+              className="py-2 text-sm text-left bg-transparent border-none"
+              onClick={() => scrollToSection('esque')}
             >
               WORK
             </button>
